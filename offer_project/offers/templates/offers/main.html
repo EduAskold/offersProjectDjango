@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'offers/css/main.css' %}">
+</head>
+<body>
+    <header>
+        <img class="logo" src="{% static 'offers/img/logo.png' %}" alt="">
+        <input class="search-line" type="search" placeholder="Пошук...">
+        <button>Вхід</button>
+        <button>Реєстрація</button>
+    </header>
+    <main>
+        {% for offer in offers %}
+        <div class="work-page">
+            <img class="img-work" src="{{offer.creator.image.url}}" alt="">
+            <p class="name-company">{{offer.creator.name}}</p>
+            <p class="work-selaru-work">{{offer.min_salary}} - {{offer.max_salary}} грн/день</p>
+            <p class="work-selaru-work" id="work">{{offer.name}}</p>
+            <a class="button-go" href="">Перейти</a>
+            <p class="date">{{offer.create_date}}</p>
+            <p class="type-job">{{offer.type_job}}</p>
+            <p class="location">{{offer.location}}</p>
+        </div>
+        {% endfor %}
+    </main>
+</body>
+</html>
