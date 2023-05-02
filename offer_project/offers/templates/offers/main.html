@@ -24,8 +24,8 @@
             <p class="name-company">{{offer.creator.name}}</p>
             <p class="work-selaru-work">{{offer.min_salary}} - {{offer.max_salary}} грн/день</p>
             <p class="work-selaru-work" id="work">{{offer.name}}</p>
-            <a class="button-go" href="">Перейти</a>
-            <p class="date">{{offer.create_date}}</p>
+            <a class="button-go" href="/offer/{{offer.id}}">Перейти</a>
+            <p class="date">{{offer.create_date|date:"m.d.Y"}}</p>
             <p class="type-job">{{offer.type_job}}</p>
             <p class="location">{{offer.location}}</p>
         </div>

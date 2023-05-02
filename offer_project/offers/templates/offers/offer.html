@@ -22,24 +22,24 @@
         <div class="offer-page">
             <div class="offer-page-text">
                 <div class="work-name-offer">
-                    <p class="work-name-text">Програміст</p>
-                    <p class="work-style">віддалено</p>
+                    <p class="work-name-text">{{offer.name}}</p>
+                    <p class="work-style">{{offer.type_job}}</p>
                 </div>
                 <div class="place">
                     <img class="place-img" src="{% static 'offers/img/place.svg' %}" alt="">
-                    <p class="small-text">м. Київ</p>
+                    <p class="small-text">{{offer.location}}</p>
                 </div>
-                <p class="small-text">100-300 грн/день</p>
+                <p class="small-text">{{offer.min_salary}}-{{offer.max_salary}} грн/день</p>
                 <p class="big-text">Опис:</p>
-                <p class="small-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo scelerisque enim at tempor. Morbi molestie lacus eget ex accumsan pulvinar. Vivamus non nibh ante. Morbi ut rutrum mauris. Nam fringilla varius sem, in dapibus nibh. Aenean non pharetra magna. Ut pulvinar rutrum pulvinar. Vivamus elit lorem, finibus ut massa vel, sollicitudin ullamcorper quam.</p>
+                <p class="small-text">{{offer.description}}</p>
                 <p class="big-text">Вимоги до кандидата:</p>
-                <p class="small-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo scelerisque enim at tempor. Morbi molestie lacus eget ex accumsan pulvinar. </p>
+                <p class="small-text">{{offer.requirements}}</p>
                 <p class="big-text">Навички:</p>
-                <p class="small-text">Знання python, java script, C++.</p>
+                <p class="small-text">{{offer.skills}}</p>
                 <p class="big-text">Інформація про нас:</p>
-                <p class="small-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo scelerisque enim at tempor. Morbi molestie lacus eget ex accumsan pulvinar.</p>
+                <p class="small-text">{{offer.creator.description}}</p>
             </div>
-            <p class="small-text">30/04/2023</p>
+            <p class="small-text">{{offer.create_date|date:"m.d.Y"}}</p>
         </div>
     </main>
 </body>
