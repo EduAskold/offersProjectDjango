@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'offers/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'offers/css/offer.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="{% static 'offers/img/logo.png' %}" alt="">
+        <input class="search-line" type="search" placeholder="Пошук...">
+        <button>Вхід</button>
+        <button>Реєстрація</button>
+    </header>
+    <main>
+        <div class="offer-page">
+            <div class="offer-page-text">
+                <div class="work-name-offer">
+                    <p class="work-name-text">Програміст</p>
+                    <p class="work-style">віддалено</p>
+                </div>
+                <div class="place">
+                    <img class="place-img" src="{% static 'offers/img/place.svg' %}" alt="">
+                    <p class="small-text">м. Київ</p>
+                </div>
+                <p class="small-text">100-300 грн/день</p>
+                <p class="big-text">Опис:</p>
+                <p class="small-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo scelerisque enim at tempor. Morbi molestie lacus eget ex accumsan pulvinar. Vivamus non nibh ante. Morbi ut rutrum mauris. Nam fringilla varius sem, in dapibus nibh. Aenean non pharetra magna. Ut pulvinar rutrum pulvinar. Vivamus elit lorem, finibus ut massa vel, sollicitudin ullamcorper quam.</p>
+                <p class="big-text">Вимоги до кандидата:</p>
+                <p class="small-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo scelerisque enim at tempor. Morbi molestie lacus eget ex accumsan pulvinar. </p>
+                <p class="big-text">Навички:</p>
+                <p class="small-text">Знання python, java script, C++.</p>
+                <p class="big-text">Інформація про нас:</p>
+                <p class="small-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo scelerisque enim at tempor. Morbi molestie lacus eget ex accumsan pulvinar.</p>
+            </div>
+            <p class="small-text">30/04/2023</p>
+        </div>
+    </main>
+</body>

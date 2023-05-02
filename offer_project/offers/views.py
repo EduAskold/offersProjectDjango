@@ -7,3 +7,5 @@ def main(request):
         "offers": offers
     }
     return render(request, 'offers/main.html', context)
+def offer(request):
+    return render(request, 'offers/offer.html')
