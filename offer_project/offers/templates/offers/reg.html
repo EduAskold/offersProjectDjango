@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'offers/css/reg.css' %}">
+    <script>
+        if ( window.history.replaceState ) {
+           window.history.replaceState( null, null, window.location.href );
+       }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type='text/javascript' src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+</head>
+<body>
+    <p class="title">Реєстрація</p>
+    <div class="type-of-worker">
+        <p onclick="showCompany()" class="company-text">Компанія</p>
+        <p onclick="showFinder()" class="searching-worker-text">Шукач роботи</p>
+    </div>
+    <form id="form-company" action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" placeholder="Назва компанії" name="company_name">
+        <textarea name="company_description" placeholder="Опис"></textarea>
+        <input type="text" placeholder="Кількість працівників" name="company_count_workers">
+        <label class="label-image" for="image-field">Фото компанії</label>
+        <input id="image-field" type="file" name="company_image" accept=".doc, .docs, .png, .jpg, .txt">
+        <input type="email" placeholder="Електронна пошта" name="company_email">
+        <input type="password" placeholder="Пароль" name="company_password">
+        <input type="password" placeholder="Підтвердження паролю" name="company_conf_password">
+        <p>{{error}}</p>
+        <input type="hidden" value="0" name="user_type">
+        <button>Зареєструватися</button>
+    </form>
+    <form id="form-finder" action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" placeholder="Ім'я" name="finder_name">
+        <input type="text" placeholder="Прізвище" name="finder_surename">
+        <label class="label-image" for="image-field">Резюме</label>
+        <input id="image-field" type="file" name="finder_resume" accept=".doc, .docs, .png, .jpg, .txt">
+        <label class="label-image" for="image-field">Фото</label>
+        <input id="image-field" type="file" name="finder_image" accept=".doc, .docs, .png, .jpg, .txt">
+        <input type="email" placeholder="Електронна пошта" name="finder_email">
+        <input id="phone" type="text" placeholder="Номер телефону" name="finder_phone_number">
+        <input type="password" placeholder="Пароль" name="finder_password">
+        <input type="password" placeholder="Підтвердження паролю" name="finder_conf_password">
+        <p>{{error}}</p>
+        <input type="hidden" value="1" name="user_type">
+        <button>Зареєструватися</button>
+    </form>
+<script src="{% static 'offers/js/reg.js' %}"></script>
+<script>
+    $(":input").inputmask();
+
+    $("#phone").inputmask({"mask": "+38(999)-999-99-99"});
+</script>
+</body>
+</html>

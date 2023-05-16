@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main),
     path('offer/<int:id>/', offer),
+    path('reg/', reg),
+    path('log/', log),
 ]+static (settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

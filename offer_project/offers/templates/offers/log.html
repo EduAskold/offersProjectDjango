@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'offers/css/log.css' %}">
+</head>
+<body>
+    <p class="title">Вхід</p>
+    <div class="type-of-worker">
+        <p onclick="showCompany()" class="company-text">Компанія</p>
+        <p onclick="showFinder()" class="searching-worker-text">Шукач роботи</p>
+    </div>
+    <form id="form-company" action="" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Електронна пошта">
+        <input type="password" placeholder="Пароль">
+        <button>Увійти</button>
+    </form>
+    <form id="form-finder" action="" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Електронна пошта">
+        <input type="password" placeholder="Пароль">
+        <button>Увійти</button>
+    </form>
+<script src="{% static 'offers/js/log.js' %}"></script>
+</body>
+</html>
