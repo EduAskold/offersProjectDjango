@@ -23,7 +23,8 @@ def reg(request):
     }
     if request.method == 'POST':
         user_type = request.POST.get('user_type')
-        if user_type=="0":
+        print(user_type)
+        if user_type == "0":
             company_name = request.POST.get('company_name')
             company_description = request.POST.get('company_description')
             company_count_workers = request.POST.get('company_count_workers')
@@ -54,23 +55,20 @@ def reg(request):
             context['form_type'] = "user"
             finder_name = request.POST.get('finder_name')
             finder_surename = request.POST.get('finder_surename')
-            #finder_resume = request.POST.get('finder_resume')
-            #finder_image = request.POST.get('finder_image')
             finder_email = request.POST.get('finder_email')
             finder_phone_number = request.POST.get('finder_phone_number')
             finder_password = request.POST.get('finder_password')
             finder_conf_password = request.POST.get('finder_conf_password')
-            print(request.FILES)
-            # if request.FILES['finder_resume']:
-            #     finder_resume = request.FILES['finder_resume']
-            #     fss = FileSystemStorage()
-            #     file = fss.save(finder_resume.name, finder_resume)
-            #     file_resume_url = fss.url(file)
-            # if request.FILES['finder_image']:
-            #     finder_image = request.FILES['finder_image']
-            #     fss = FileSystemStorage()
-            #     file = fss.save(finder_image.name, finder_image)
-            #     file_image_url = fss.url(file)
+            if request.FILES['finder_resume']:
+                finder_resume = request.FILES['finder_resume']
+                fss = FileSystemStorage()
+                file = fss.save(finder_resume.name, finder_resume)
+                file_resume_url = fss.url(file)
+            if request.FILES['finder_image']:
+                finder_image = request.FILES['finder_image']
+                fss = FileSystemStorage()
+                file = fss.save(finder_image.name, finder_image)
+                file_image_url = fss.url(file)
             if finder_name and finder_surename and finder_email and finder_phone_number and finder_password and finder_conf_password:
                 if len(finder_password)>=8:
                     if finder_password == finder_conf_password:

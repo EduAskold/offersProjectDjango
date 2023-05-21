@@ -26,7 +26,7 @@
         <textarea name="company_description" placeholder="Опис"></textarea>
         <input type="text" placeholder="Кількість працівників" name="company_count_workers">
         <label class="label-image" for="image-field">Фото компанії</label>
-        <input id="image-field" type="file" name="company_image" accept=".doc, .docs, .png, .jpg, .txt">
+        <input id="image-field" class="image-field" type="file" name="company_image">
         <input type="email" placeholder="Електронна пошта" name="company_email">
         <input type="password" placeholder="Пароль" name="company_password">
         <input type="password" placeholder="Підтвердження паролю" name="company_conf_password">
@@ -38,10 +38,10 @@
         {% csrf_token %}
         <input type="text" placeholder="Ім'я" name="finder_name">
         <input type="text" placeholder="Прізвище" name="finder_surename">
-        <label class="label-image" for="image-field">Резюме</label>
-        <input id="image-field" type="file" name="finder_resume" accept=".doc, .docs, .png, .jpg, .txt">
-        <label class="label-image" for="image-field">Фото</label>
-        <input id="image-field" type="file" name="finder_image" accept=".doc, .docs, .png, .jpg, .txt">
+        <label class="label-image" for="image-field1">Резюме</label>
+        <input id="image-field1" class="image-field" type="file" name="finder_resume" >
+        <label class="label-image" for="image-field2">Фото</label>
+        <input id="image-field2" class="image-field" type="file" name="finder_image">
         <input type="email" placeholder="Електронна пошта" name="finder_email">
         <input id="phone" type="text" placeholder="Номер телефону" name="finder_phone_number">
         <input type="password" placeholder="Пароль" name="finder_password">
