@@ -56,5 +56,12 @@
 
     $("#phone").inputmask({"mask": "+38(999)-999-99-99"});
 </script>
+<script>
+    const formType = "{{form_type}}";
+    console.log(formType);
+    if (formType === "user"){
+        showFinder()
+    }
+</script>
 </body>
 </html>
