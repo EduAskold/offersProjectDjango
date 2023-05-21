@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from offers.models import Offer, Category
 from django.contrib.auth.models import User
 from company.models import Company
 from client.models import Client
 from django.core.files.storage import FileSystemStorage
+from django.contrib.auth import login, logout, authenticate
 # Create your views here.
 def main(request):
     offers = Offer.objects.all()
@@ -23,12 +24,10 @@ def reg(request):
     }
     if request.method == 'POST':
         user_type = request.POST.get('user_type')
-        print(user_type)
         if user_type == "0":
             company_name = request.POST.get('company_name')
             company_description = request.POST.get('company_description')
             company_count_workers = request.POST.get('company_count_workers')
-            #company_image = request.POST.get('company_image')
             company_email = request.POST.get('company_email')
             company_password = request.POST.get('company_password')
             company_conf_password = request.POST.get('company_conf_password')
@@ -74,7 +73,7 @@ def reg(request):
                     if finder_password == finder_conf_password:
                         try:
                             user = User.objects.create_user(username=finder_email, password=finder_password)
-                            client = Client.objects.create(name = finder_name, surename = finder_surename, email = finder_email, phone_number = finder_phone_number, resume = file_resume_url, image = file_image_url)
+                            client = Client.objects.create(name = finder_name, surename = finder_surename, email = finder_email, phone_number = finder_phone_number, resume = file_resume_url, image = file_image_url, user=user)
                         except:
                             context['error'] = "Користувач з такою електронною поштою вже існує"
                     else:
@@ -85,4 +84,37 @@ def reg(request):
                 context['error'] = "Заповніть всі поля"
     return render(request, 'offers/reg.html', context)
 def log(request):
-    return render(request, 'offers/log.html')
+    context ={
+
+    }
+    if request.method == 'POST':
+        user_type = request.POST.get('user_type')
+        if user_type == "0":
+            context['form_type'] = "company"
+            company_log_email = request.POST.get('company_log_email')
+            company_log_password = request.POST.get('company_log_password')
+            user = authenticate(username = company_log_email, password = company_log_password)
+            if user:
+                try:
+                    Company.objects.get(user = user)
+                    login(request, user)
+                    return redirect('main')
+                except:
+                    context['error'] = "Користувача/компанії з такою електронною поштою не існує"
+            else:
+                context['error'] = "Логін або пароль невірний"
+        elif user_type == "1":
+            context['form_type'] = "user"
+            finder_log_email = request.POST.get('finder_log_email')
+            finder_log_password = request.POST.get('finder_log_password')
+            user = authenticate(username = finder_log_email, password = finder_log_password)
+            if user:
+                try:
+                    Client.objects.get(user = user)
+                    login(request, user)
+                    return redirect('main')
+                except:
+                    context['error'] = "Користувача з такою електронною поштою не існує"
+            else:
+                context['error'] = "Логін або пароль невірний"
+    return render(request, 'offers/log.html', context)

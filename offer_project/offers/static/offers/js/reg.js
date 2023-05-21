@@ -34,3 +34,7 @@ function showCompany(){
     companyText.style.color = 'mediumslateblue'
     searchingWorkerText.style.color = 'white'
 }
+function getFile(selector){
+    const input = document.querySelector(selector);
+    input.style.backgroundColor = 'green';
+}

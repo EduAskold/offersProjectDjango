@@ -14,8 +14,8 @@
     <header>
         <img class="logo" src="{% static 'offers/img/logo.png' %}" alt="">
         <input class="search-line" type="search" placeholder="Пошук...">
-        <button>Вхід</button>
-        <button>Реєстрація</button>
+        <a href="/log/">Вхід</a>
+        <a href="/reg/">Реєстрація</a>
     </header>
     <main>
         {% for offer in offers %}

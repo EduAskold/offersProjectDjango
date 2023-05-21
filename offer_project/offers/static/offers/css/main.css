@@ -27,17 +27,19 @@ header{
     border-radius: 15px;
     border: none;
 }
-button{
+a{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
     gap: 10px;  
-    width: 170px;
-    height: 49px;
+    width: 160px;
+    height: 30px;
     background: #44B4F3;
     border-radius: 15px;
     border: none;
+    text-decoration: none;
+    color: #000000;
 }
 .work-page{
     display: flex;

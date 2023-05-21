@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from offers.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main),
+    path('', main, name="main"),
     path('offer/<int:id>/', offer),
     path('reg/', reg),
     path('log/', log),
