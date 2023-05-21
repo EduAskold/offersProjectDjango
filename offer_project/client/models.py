@@ -1,15 +1,17 @@
 from django.db import models
 from offers.models import Offer
+from django.contrib.auth.models import User
 # Create your models here.
 class Client(models.Model):
     name = models.CharField(max_length=255)
     surename = models.CharField(max_length=255)
-    resume = models.FileField(upload_to="client/resume/")
-    image = models.ImageField(upload_to="client/image/")
+    resume = models.FileField(upload_to="client/resume/", null=True, blank=True)
+    image = models.ImageField(upload_to="client/image/", null=True, blank=True)
     email = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=255)
     telegram = models.CharField(max_length=255, null=True, blank=True)
     linkedin = models.CharField(max_length=255, null=True, blank=True)
+    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
 class Aplication(models.Model):
     resume = models.FileField(upload_to="client/resume/")
     message = models.TextField(null=True, blank=True)
