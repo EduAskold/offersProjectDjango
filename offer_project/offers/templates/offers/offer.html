@@ -15,8 +15,10 @@
     <header>
         <img class="logo" src="{% static 'offers/img/logo.png' %}" alt="">
         <input class="search-line" type="search" placeholder="Пошук...">
-        <button>Вхід</button>
-        <button>Реєстрація</button>
+        {% if not user.is_authenticated %}
+        <a href="/log/">Вхід</a>
+        <a href="/reg/">Реєстрація</a>
+        {% endif %}
     </header>
     <main>
         <div class="offer-page">
