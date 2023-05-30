@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'company/company.css' %}">
+    <link rel="stylesheet" href="{% static 'offers/css/main.css' %}">
+</head>
+<body>
+    <main>
+        <div class="company-page">
+            <div class="company-header">
+                <img class="img-company" src="{{company.image.url}}" alt="">
+                <div class="company-name-workers">
+                    <p class="name-company">{{company.name}}</p>
+                    <div class="company-workers">
+                        <img src="{% static 'offers/img/group_of_people.svg' %}" alt="">
+                        <p class="workers-company-text">{{company.count_workers}} спеціалістів</p>
+                    </div>
+                </div>
+            </div>
+            <div class="company-offers">
+                <p onclick="showDescription()" id="description_company" class="offer-company-element selected">Про компанію</p>
+                <p onclick="showVacancie()" id="vacancie_company" class="offer-company-element">Вакансії</p>
+            </div>
+            <div class="company-control-page">
+                <div class="company-description-page">
+                    <p class="description-company-h1">Опис:</p>
+                    <p class="description-company-text">{{company.description}}</p>
+                </div>
+                <div class="company-vacancies-page">
+                    {% for offer in offers %}
+                        <div class="work-page">
+                            <img class="img-work" src="{{offer.creator.image.url}}" alt="">
+                            <p class="name-company">{{offer.creator.name}}</p>
+                            <p class="work-selaru-work">{{offer.min_salary}} - {{offer.max_salary}} грн/день</p>
+                            <p class="work-selaru-work" id="work">{{offer.name}}</p>
+                            <a class="button-go" href="/offer/{{offer.id}}">Перейти</a>
+                            <p class="date">{{offer.create_date|date:"m.d.Y"}}</p>
+                            <p class="type-job">{{offer.type_job}}</p>
+                            <p class="location">{{offer.location}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="{% static 'company/company.js' %}"></script>
+</html>

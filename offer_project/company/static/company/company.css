@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.company-page{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+}
+.company-header{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    width: 100%;
+    height: 150px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.company-name-workers{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.name-company{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.05em;
+}
+.img-company{
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+}
+.company-workers{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.company-offers{
+    width: 100%;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    background-color: #CBC4C4;
+    height: 50px;
+    gap: 10px;
+    padding-left: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+}
+.offer-company-element{
+    padding: 10px;
+    cursor: pointer;
+}
+.selected{
+    background-color: #E7E7E7;
+}
+.company-control-page{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+}
+.description-company-h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 0.05em;
+}
+.company-vacancies-page{
+    display: none;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.company-description-page{
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+}

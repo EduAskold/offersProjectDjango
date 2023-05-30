@@ -18,10 +18,12 @@ from django.urls import path
 from offer_project import settings
 from django.conf.urls.static import static
 from offers.views import *
+from company.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main, name="main"),
     path('offer/<int:id>/', offer),
     path('reg/', reg),
     path('log/', log),
+    path('company/<int:id>/', company),
 ]+static (settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
